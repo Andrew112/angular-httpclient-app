@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { RestApiService } from "../shared/rest-api.service";
 import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+
+import { RestApiService } from '../shared/rest-api.service';
 
 @Component({
   selector: 'app-employee-details',
@@ -16,10 +17,10 @@ export class EmployeeEditComponent implements OnInit {
     public restApi: RestApiService,
     public actRoute: ActivatedRoute,
     public router: Router
-  ) { 
+  ) {
   }
 
-  ngOnInit() { 
+  ngOnInit() {
     this.restApi.getEmployee(this.id).subscribe((data: {}) => {
       this.employeeData = data;
     })

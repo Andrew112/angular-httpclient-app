@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RestApiService } from "../shared/rest-api.service";
+
+import { RestApiService } from '../shared/rest-api.service';
 
 @Component({
   selector: 'app-employees-list',
@@ -15,23 +16,23 @@ export class EmployeesListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loadEmployees()
+    this.loadEmployees();
   }
 
   // Get employees list
   loadEmployees() {
     return this.restApi.getEmployees().subscribe((data: {}) => {
       this.Employee = data;
-    })
+    });
   }
 
   // Delete employee
   deleteEmployee(id) {
-    if (window.confirm('Are you sure, you want to delete?')){
+    if (window.confirm('Are you sure, you want to delete?')) {
       this.restApi.deleteEmployee(id).subscribe(data => {
-        this.loadEmployees()
-      })
+        this.loadEmployees();
+      });
     }
-  }  
+  }
 
 }

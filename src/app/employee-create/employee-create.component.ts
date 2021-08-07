@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { RestApiService } from '../shared/rest-api.service';
 import { Router } from '@angular/router';
-import { RestApiService } from "../shared/rest-api.service";
 
 @Component({
   selector: 'app-employee-create',
@@ -12,7 +13,7 @@ export class EmployeeCreateComponent implements OnInit {
   @Input() employeeDetails = { name: '', email: '', phone: 0 }
 
   constructor(
-    public restApi: RestApiService, 
+    public restApi: RestApiService,
     public router: Router
   ) { }
 
@@ -20,8 +21,10 @@ export class EmployeeCreateComponent implements OnInit {
 
   addEmployee(dataEmployee) {
     this.restApi.createEmployee(this.employeeDetails).subscribe((data: {}) => {
-      this.router.navigate(['/employees-list'])
-    })
+      this.router.navigate(['/employees-list']);
+    });
   }
+
+  
 
 }
