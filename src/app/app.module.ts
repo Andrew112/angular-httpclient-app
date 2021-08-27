@@ -15,13 +15,15 @@ import { FormsModule } from '@angular/forms';
 import { EmployeeCreateComponent } from './employee-create/employee-create.component';
 import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 import { EmployeesListComponent } from './employees-list/employees-list.component';
+import { AdministratorComponent } from './administrator/administrator.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeCreateComponent,
     EmployeeEditComponent,
-    EmployeesListComponent
+    EmployeesListComponent,
+    AdministratorComponent
   ],
   imports: [
     BrowserModule,
